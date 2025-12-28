@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Button from "./Button";
 
 const Main = () => {
@@ -13,7 +14,11 @@ const Main = () => {
             to generate predictive insights that help users anticipate market
             trends and price movements.
           </p>
-          <Button text="Login" class="bg-sky-500 border-0 font-semibold" />
+          <Button
+            text="Login"
+            url="/login"
+            class="bg-sky-500 border-0 font-semibold"
+          />
         </div>
       </div>
     </>

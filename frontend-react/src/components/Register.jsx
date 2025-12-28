@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { FaSpinner } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -9,6 +10,8 @@ const Register = () => {
   const [errors, setErrors] = useState({});
   const [isSuccess, setIsSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,6 +28,7 @@ const Register = () => {
       setTimeout(() => {
         setIsSuccess(false);
       }, 2000);
+      navigate("/login");
     } catch (err) {
       setErrors(err.response.data);
       console.error("Registration failed!", err.response.data);
@@ -39,7 +43,7 @@ const Register = () => {
   return (
     <>
       <div className="text-white justify-center items-center flex flex-1">
-        <div className="border rounded p-5 w-full m-4 md:m-0 md:w-1/2 lg:w-1/3 lg:h-[22rem]">
+        <div className="rounded px-10 py-5 w-full m-4 md:m-0 md:w-1/2 lg:w-1/3 lg:h-[20rem] bg-[#2b3035]">
           <div className="flex flex-col gap-y-5">
             <h3 className="text-center font-semibold text-2xl">
               Create an Account
